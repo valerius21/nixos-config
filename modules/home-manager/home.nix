@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ./editor/editor.nix
+    ./editor/neovim.nix
   ];
-  editor.enable = true;
+  neovim.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "valerius";
@@ -27,7 +27,7 @@
 	pkgs.discord
 	pkgs.fzf
 	pkgs.glances
-	#pkgs.neovim
+  pkgs.ghostty
 	pkgs.tmux
 	pkgs.tree
 	pkgs.uv
