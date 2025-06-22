@@ -1,6 +1,10 @@
 { config, pkgs, ... }:
 
 {
+  imports = [
+    ./editor/editor.nix
+  ];
+  editor.enable = true;
   # Home Manager needs a bit of information about you and the paths it should
   # manage.
   home.username = "valerius";
@@ -23,7 +27,7 @@
 	pkgs.discord
 	pkgs.fzf
 	pkgs.glances
-	pkgs.neovim
+	#pkgs.neovim
 	pkgs.tmux
 	pkgs.tree
 	pkgs.uv
@@ -64,10 +68,10 @@
     # # symlink to the Nix store copy.
     # ".screenrc".source = dotfiles/screenrc;
     # Removed .gitconfig mapping since dotfiles submodule is gone
-    ".gitconfig".source = dotfiles/etc/dot-gitconfig;
-    ".config/ghostty".source = dotfiles/etc/dot-config;
-    ".zshrc".source = dotfiles/zsh/dot-zshrc;
-    ".zsh-custom".source = dotfiles/zsh/dot-zsh-custom;
+    ".gitconfig".source = _dotfiles/etc/dot-gitconfig;
+    ".config/ghostty".source = _dotfiles/etc/dot-config;
+    ".zshrc".source = _dotfiles/zsh/dot-zshrc;
+    ".zsh-custom".source = _dotfiles/zsh/dot-zsh-custom;
 
     # # You can also set the file content immediately.
     # ".gradle/gradle.properties".text = ''
