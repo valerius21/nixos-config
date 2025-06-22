@@ -1,0 +1,56 @@
+[alias]
+	# most aliases are managed by zap
+	oops = commit --amend --no-edit
+	reword = commit --amend
+	uncommit = reset --soft HEAD~1
+	untrack = rm --cache --
+[user]
+	name = Valerius Mattfeld
+	email = git@valerius.me
+[core]
+	autocrlf = input
+	pager = delta
+  # Don't consider trailing space change as a cause for merge conflicts
+	whitespace = -trailing-space
+[interactive]
+	diffFilter = delta --color-only
+[delta]
+	navigate = true
+	side-by-side = true # NOTE: trial
+	line-numbers = true
+[merge]
+	tool = "nvim"
+	conflictstyle = zdiff3
+	ff = false
+
+[mergetool]
+	keepBackup = false
+	prompt = false
+	
+[mergetool "nvim"]
+	cmd = "nvim -d -c \"wincmd l\" -c \"norm ]c\" \"$LOCAL\" \"$MERGED\" \"$REMOTE\""
+
+[init]
+	defaultBranch = master
+[grep]
+	break = true
+	heading = true
+	lineNumber = true
+	extendedRegexp = true
+[log]
+	abbrevCommit = true # short hash
+	follow = true
+	decorate = false # disable decorate for reflog
+[push]
+	default = upstream
+	followTags = true
+[tag]
+  # Sort tags as version numbers whenever applicable, so 1.10.2 is AFTER 1.2.0.
+  sort = version:refname
+[versionsort]
+  prereleaseSuffix = -pre
+  prereleaseSuffix = .pre
+  prereleaseSuffix = -beta
+  prereleaseSuffix = .beta
+  prereleaseSuffix = -rc
+  prereleaseSuffix = .rc
