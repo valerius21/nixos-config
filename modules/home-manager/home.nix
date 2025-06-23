@@ -27,7 +27,8 @@
 	pkgs.discord
 	pkgs.fzf
 	pkgs.glances
-  pkgs.ghostty
+	pkgs.ghostty
+	pkgs.ncdu
 	pkgs.tmux
 	pkgs.tree
 	pkgs.uv
